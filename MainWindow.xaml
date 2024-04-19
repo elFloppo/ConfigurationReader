@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConfigurationReader"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Чтение конфигураций" MinHeight="500" MinWidth="600" Height="500" Width="600">
     <Grid>
-        
+        <Label Content="Укажите путь до файла:" Margin="26,17,0,0" FontSize="14" Height="31" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188"/>
+        <TextBox Text="{Binding FileLocation, UpdateSourceTrigger=PropertyChanged}" Margin="26,53,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="423" FontSize="14"/>
+        <Button Command="{Binding SelectFileCommand}" Content="Обзор..." Margin="454,53,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="91" FontSize="14"/>
+        <TextBlock Text="{Binding Path=WrongPathMessage}" Margin="210,84,0,0" Foreground="#FFA72727" TextAlignment="Right" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="239"/>
+        <Button Command="{Binding AddConfigurationCommand}" IsEnabled="True" Content="Добавить конфигурацию" Margin="26,84,0,0" Height="39" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="179"/>
+        <Label Content="Список конфигураций" Margin="0,113,26,0" HorizontalAlignment="Right" Width="187" FontSize="14" Height="27" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+        <DataGrid ItemsSource="{Binding Configurations}" IsReadOnly="True" ColumnWidth="*" Margin="26,140,26,41" FontSize="14"/>
+        <TextBlock Text="{Binding Path=SerializationErrorMessage}" Height="36" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="20" Margin="84,0,84,0" Foreground="#FFA71818"/>
     </Grid>
 </Window>
