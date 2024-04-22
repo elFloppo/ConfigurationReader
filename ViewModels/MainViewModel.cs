@@ -111,7 +111,7 @@ namespace ConfigurationReader.ViewModels
             var extension = Path.GetExtension(trimmedFileLocation).ToLower();
             var isExtensionValid = Deserializer.SupportedExtensions.Contains(extension);
 
-            WrongPathMessage = isPathValid ? (fileExists ? (isExtensionValid ? null : "Разрешение файла не поддерживается") : "Файл не найден") : "Неверный путь до файла";
+            WrongPathMessage = isPathValid ? (fileExists ? (isExtensionValid ? null : "Расширение файла не поддерживается") : "Файл не найден") : "Неверный путь до файла";
             return isPathValid && fileExists && isExtensionValid;
         }
 
